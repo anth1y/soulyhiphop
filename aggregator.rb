@@ -3,7 +3,7 @@ require 'feed-normalizer'
 require 'open-uri'
 # http://ruby.dzone.com/articles/ruby-rss-aggregator
 #Define URL and Parse Feed
-feed_url = [ 'http://www.okayplayer.com/feed','http://allhiphop.com/feed/']
+feed_url = 'http://www.okayplayer.com/feed'
 rss = FeedNormalizer::FeedNormalizer.parse open(feed_url)
 
 #Quit if  no articles
