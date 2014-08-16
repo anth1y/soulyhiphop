@@ -1,0 +1,9 @@
+<h1>Latest Bars</h1>
+<%= button_to "Fetch", messenger_path %>
+<ul>
+<% @bars.each do |bar| %>
+  <li>
+  <%= link_to bar.title, bar.entry_url %>
+  </li>
+<% end %>
+</ul>
