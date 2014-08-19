@@ -17,8 +17,5 @@ rss.entries.each do |entry|
   entry_url = entry.urls.first
   description = entry.description
   published_at = entry.date_published
-  #puts title
-  puts entry.inspect
-  #add more things here
 end
 
