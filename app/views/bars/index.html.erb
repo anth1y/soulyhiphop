@@ -5,5 +5,6 @@
   <li>
   <%= link_to bar.title, bar.entry_url %>
   </li>
+  <%= render(@bars) || "There are no new bars." %>
 <% end %>
 </ul>
