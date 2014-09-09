@@ -3,7 +3,7 @@ class MessengersController < ApplicationController
   
   def create
     #Read entries
-    @rss.entries.each do |entry|
+    rss_entries.each do |entry|
       bar = Bar.new
       bar.title = entry.title
       bar.body = entry.content
@@ -11,19 +11,21 @@ class MessengersController < ApplicationController
       bar.entry_url = entry.urls.first
       bar.description = entry.description
       bar.published_at = entry.date_published
-      bar.save!
+      bar.save
     end
     redirect_to root_path
 
   end
-
-  def make_sure_we_have_entries
+  def rss_entries
+    return @rss.entries unless @rss.nil?
     feed_url = 'http://www.okayplayer.com/feed'
     @rss = FeedNormalizer::FeedNormalizer.parse open(feed_url)
-
-    #Quit if  no articles
-    redirect_to root_path if @rss.entries.length.zero?
+    @rss.entries
   end
-
+  def make_sure_we_have_entries
+    #Quit if  no articles
+    redirect_to root_path if rss_entries.length.zero?
+    flash.notice = "bars created" 
+  end
 
 end
