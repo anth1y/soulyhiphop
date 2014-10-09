@@ -3,12 +3,19 @@
 <head>
   <title>Soulyhiphop</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<div id="page">
+  <% if flash[:alert] %>
+    <P class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
 <%= yield %>
-
+</div>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

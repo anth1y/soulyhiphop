@@ -1,4 +1,6 @@
 Soulyhiphop::Application.routes.draw do
+  resources :hiphop_sites
+
   resources :bars
   root "bars#index"
 

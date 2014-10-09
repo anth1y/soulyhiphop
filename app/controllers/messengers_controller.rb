@@ -1,9 +1,9 @@
 class MessengersController < ApplicationController
   before_filter :make_sure_we_have_entries
-  
+
   def create
     #Read entries
-    rss_entries.each do |entry|
+    new_bars_count = rss_entries.select do | entry|
       bar = Bar.new
       bar.title = entry.title
       bar.body = entry.content
@@ -12,7 +12,8 @@ class MessengersController < ApplicationController
       bar.description = entry.description
       bar.published_at = entry.date_published
       bar.save
-    end
+    end.count
+    flash.notice = "#{new_bars_count} bars created"
     redirect_to root_path
 
   end
@@ -25,7 +26,6 @@ class MessengersController < ApplicationController
   def make_sure_we_have_entries
     #Quit if  no articles
     redirect_to root_path if rss_entries.length.zero?
-    flash.notice = "bars created" 
   end
 
 end

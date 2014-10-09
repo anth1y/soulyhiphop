@@ -8,7 +8,7 @@ describe MessengersController do
 
     it "should display a message about the number of created bars" do
       post :create
-      expect(flash[:notice]).to match(/15 bars created/)
+      expect(flash[:notice]).to match(/10 bars created/)
     end
 
     context "when there are duplicate bars" do
@@ -21,15 +21,15 @@ describe MessengersController do
           description: "foo",
           published_at: Date.today
         )
-        allow(controller).to receive(:rss_entries) { 
+        allow(controller).to receive(:rss_entries) {
           [OpenStruct.new(
-              title: "old bar", 
-              content: "foo", 
-              authors:["foo"], 
-              urls: ["http://example.com"], 
-              description: "foo", 
+              title: "old bar",
+              content: "foo",
+              authors:["foo"],
+              urls: ["http://example.com"],
+              description: "foo",
               date_published: Date.civil(2015,01,01))]
-        } 
+        }
         expect { post :create }.to_not raise_error
       end
     end
