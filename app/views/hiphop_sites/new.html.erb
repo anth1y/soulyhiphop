@@ -1,0 +1,35 @@
+<h1>Enter New Site</h1>
+
+<%= form_for @hiphop_site do |form| %>
+  <div>
+    <%= form.label :description, "Description" %>
+    <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :url, "Enter URL" %>
+    <%= form.text_field :url %>
+  </div>
+  <div>
+    <%= form.label :image_url, "Enter Image URL" %>
+    <%= form.text_field :image_url %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<br><br>
+
+<hr>
+<form action="<%=hiphop_sites_path%>" method="post">
+  <div> 
+    <label for="url"> Enter URL </label>
+    <input id="url" type="url" name="url"/> 
+  </div>
+  <div> 
+    <label for="description"> Site Description </label>
+    <input id="description" type="text" name="description" />
+  </div>
+  <div> 
+    <label for="image_url"> Image Url</label>
+    <input type="text" name="image_url"/>
+  </div> 
+  <input type='submit' value="Submit">
+</form>

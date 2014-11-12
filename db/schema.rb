@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816025629) do
+ActiveRecord::Schema.define(version: 20141009025842) do
 
   create_table "bars", force: true do |t|
     t.string   "title"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20140816025629) do
     t.string   "entry_url"
     t.text     "description"
     t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hiphop_sites", force: true do |t|
+    t.string   "url"
+    t.string   "image_url"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

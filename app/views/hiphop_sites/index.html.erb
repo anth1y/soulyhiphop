@@ -1,0 +1,9 @@
+<h1>Hip Hop Sites</h1>
+<ul>
+  <% @hiphop_sites.each do |hip| %>
+    <li>
+      <%= image_tag hip.image_url %>
+      <%= link_to hip.url, hip.description %>
+    </li>
+  <% end %>
+</ul>
