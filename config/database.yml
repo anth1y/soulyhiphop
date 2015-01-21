@@ -3,11 +3,19 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+test:
+  adapter: postgresql
+  database: souly_test
+  username: user
+  password: "foo"
+  host: localhost
+
 development:
   adapter: postgresql
-  host: localhost
   database: souly_development
-  username: souly
+  host: localhost
+  username: user
+  password: "foo"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -17,4 +25,5 @@ production:
   adapter: postgresql
   host: localhost
   database: souly_production
-  username: souly
+  username: user
+  password: "foo"

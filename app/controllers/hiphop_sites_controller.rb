@@ -11,9 +11,18 @@ class HiphopSitesController < ApplicationController
   end
 
   def index
-    @hiphop_sites = HiphopSite.all 
+    @hiphop_sites = HiphopSite.all
   end
 
+  def edit
+    @hiphop_site = HiphopSite.find(params[:id])
+  end
+
+  def update
+    @hiphop_site = HiphopSite.find(params[:id])
+    @hiphop_site.update_attributes(hiphop_site_params)
+    redirect_to hiphop_sites_path
+  end
   protected
 
   def hiphop_site_params

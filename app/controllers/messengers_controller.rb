@@ -1,7 +1,7 @@
 class MessengersController < ApplicationController
   before_filter :make_sure_we_have_entries
 
-  def create
+  def update
     #Read entries
     new_bars_count = rss_entries.select do | entry|
       bar = Bar.new
@@ -19,7 +19,8 @@ class MessengersController < ApplicationController
   end
   def rss_entries
     return @rss.entries unless @rss.nil?
-    feed_url = 'http://www.okayplayer.com/feed'
+    feed_url = HiphopSite.first.url
+    #feed_url = 'http://www.okayplayer.com/feed'
     @rss = FeedNormalizer::FeedNormalizer.parse open(feed_url)
     @rss.entries
   end

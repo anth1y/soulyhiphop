@@ -18,7 +18,7 @@ Soulyhiphop::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resource :messenger, only: :create
+  resources :messengers, only: :update
   # Example resource route with options:
   #   resources :products do
   #     member do

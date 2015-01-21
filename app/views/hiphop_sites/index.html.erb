@@ -3,7 +3,9 @@
   <% @hiphop_sites.each do |hip| %>
     <li>
       <%= image_tag hip.image_url %>
-      <%= link_to hip.url, hip.description %>
+      <%= link_to hip.description, hip.url %>
+      <%= link_to "edit", edit_hiphop_site_path(hip) %>
+      <%= button_to "Fetch", messenger_path(hip), method: :patch %>
     </li>
   <% end %>
 </ul>
