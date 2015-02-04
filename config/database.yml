@@ -6,7 +6,7 @@
 test:
   adapter: postgresql
   database: souly_test
-  username: user
+  username: soulyhiphop 
   password: "foo"
   host: localhost
 
@@ -14,7 +14,7 @@ development:
   adapter: postgresql
   database: souly_development
   host: localhost
-  username: user
+  username: soulyhiphop
   password: "foo"
 
 # Warning: The database defined as "test" will be erased and
@@ -25,5 +25,5 @@ production:
   adapter: postgresql
   host: localhost
   database: souly_production
-  username: user
+  username: soulyhiphop 
   password: "foo"
